@@ -1,2 +1,5 @@
 # group-project-201
-valerie liao
+
+- Madhumita Bharadwaj
+- Valerie Liao
+- Nicholas Kim
