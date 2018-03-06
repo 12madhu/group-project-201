@@ -7,7 +7,11 @@ library(corrplot)
 library("tibble")
 library("measurements")
 library("shinythemes")
-song.data <- read.csv("~/Desktop/group-project-201/featuresdf.csv", stringsAsFactors = FALSE)
+library("RColorBrewer")
+song.data <- read.csv("featuresdf.csv", stringsAsFactors = FALSE)
+column.data <- read.csv("columndata.csv", stringsAsFactors = FALSE)
+specific.features <- colnames(song.data[-c(1, 2, 3)])
+song.data$position <- seq.int(nrow(song.data))
 songs <- song.data$name
 artists <- summed.dup.artists$artists
 features <- colnames(song.data[4:16])
@@ -39,3 +43,5 @@ filtered.correlation <- cor(song.data[c("speechiness", "danceability", "tempo")]
 # see other visual options: https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html
 visual.all <- corrplot(all.features.correlation, method="color",  col = cm.colors(100))
 visual.filtered <- corrplot(filtered.correlation, method="circle",  col = cm.colors(100))
+
+
