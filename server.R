@@ -31,8 +31,8 @@ server <- function(input, output) {
                 stat_function(fun = dnorm,args = list(mean = mean(song.data[ ,input$select1]), sd = sd(song.data[ ,input$select1])), col = "black") +
                     labs(x = str_to_title(input$select1), y = "Count")
         }else{
-            ggplot(data = song.data, mapping = aes(x = position, y = song.data[ ,input$select1]), binwidth = 0.001) +
-                geom_point() +
+            ggplot(data = song.data, aes(position, song.data[ ,input$select1])) +
+                geom_point() + labs(x = "Position", y = str_to_title(input$select1)) +
                 geom_smooth(se = FALSE)
         }
     })
