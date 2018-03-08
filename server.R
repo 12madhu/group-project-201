@@ -3,6 +3,12 @@ source("data.R")
 
 server <- function(input, output) {
     
+    # outputs logo
+    output$logo <- renderUI({
+        tags$div(img(src = "logo.jpeg", width = 380, height = 240))
+    })
+    
+    
     # provides description for each audio feature when selected
     output$text1 <- renderPrint({
             description <- column.data %>% filter(input$select1 == columnname) %>%

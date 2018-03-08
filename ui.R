@@ -2,7 +2,26 @@
 source("data.R")
 
 ui <- navbarPage(theme = shinytheme("cerulean"), 
-                 "Audio Features: Top 100",
+                 "Audio Features: Top 100 Tracks 2017",
+                 
+                 
+                 # introduces our data and objectives
+                 tabPanel("Introduction",
+                              uiOutput("logo"),
+                              mainPanel(
+                                    h4("What is our data?"),
+                                    p("Our data set contains songs from Spotify’s “Top Tracks of 2017,” a playlist of 100 most streamed songs over the course of 2017. 
+                                        We obtained the dataset from Kaggle (https://www.kaggle.com/nadintamer/top-tracks-of-2017),  
+                                        however the original dataset was extracted using the Spotify Web API and the spotipy Python library. 
+                                        The dataset contains audio features for each of the 100 songs listed. Each track was assigned a unique
+                                        Spotify ID and the audio features for these tracks were calculated by Spotify."),
+                                    h4("Some of the questions we're trying to answer:"),
+                                    p("Why do people stream these songs the most?"),
+                                    p("Are there characteristics of songs that people prefer? (ie major over minor, live vs not live, etc.)"),
+                                    p("What audio features were most prominent for artists 
+                                      that had more than one song on the Top Tracks of 2017 playlist?")
+                        )
+                    ),
                  
                 # tab with histograms for each audio feature  
                  tabPanel("Features",
@@ -161,8 +180,7 @@ ui <- navbarPage(theme = shinytheme("cerulean"),
                               )
                           )
                  )
-                 
-)
+   )              
 
 
 
